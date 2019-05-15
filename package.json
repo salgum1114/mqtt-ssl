@@ -1,0 +1,49 @@
+{
+  "name": "mqtt-ssl",
+  "version": "1.0.0",
+  "description": "Mosca based mqtt ssl test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "babel-node --extensions \".ts\" src/server.ts",
+    "pub": "babel-node --extensions \".ts\" src/publisher.ts",
+    "sub": "babel-node --extensions \".ts\" src/subscriber.ts",
+    "keygen": "babel-node --extensions \".ts\" src/keygen.ts",
+    "keygen:ca": "babel-node --extensions \".ts\" src/keygen.ts ca",
+    "keygen:server": "babel-node --extensions \".ts\" src/keygen.ts server",
+    "keygen:client": "babel-node --extensions \".ts\" src/keygen.ts client",
+    "tsc": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/salgum1114/mqtt-ssl.git"
+  },
+  "keywords": [
+    "mqtt",
+    "ssl",
+    "tls",
+    "mosca"
+  ],
+  "author": "salgum1114",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/salgum1114/mqtt-ssl/issues"
+  },
+  "homepage": "https://github.com/salgum1114/mqtt-ssl#readme",
+  "dependencies": {
+    "mosca": "^2.8.3",
+    "mqtt": "^2.18.8"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.4",
+    "@babel/node": "^7.2.2",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "@babel/preset-typescript": "^7.3.3",
+    "@types/mosca": "^2.8.1",
+    "@types/mqtt": "^2.5.0",
+    "@types/node": "^12.0.2"
+  }
+}
