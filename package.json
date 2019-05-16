@@ -12,6 +12,7 @@
     "keygen:ca": "babel-node --extensions \".ts\" src/keygen.ts ca",
     "keygen:server": "babel-node --extensions \".ts\" src/keygen.ts server",
     "keygen:client": "babel-node --extensions \".ts\" src/keygen.ts client",
+    "keygen:verify": "babel-node --extensions \".ts\" src/keygen.ts verify",
     "tsc": "tsc"
   },
   "repository": {

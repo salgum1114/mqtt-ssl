@@ -1,7 +1,7 @@
 import { execSync, ExecSyncOptions } from 'child_process';
 import path from 'path';
 
-type Status = 'all' | 'ca' | 'server' | 'client';
+type Status = 'all' | 'ca' | 'server' | 'client' | 'verify';
 
 const argsLength = process.argv.length;
 let status: Status = 'all';
@@ -27,6 +27,10 @@ if (status === 'all' || status === 'ca') {
     execSync(`${binPath} req -new -x509 -days 1024 -extensions v3_ca -keyout ${caKeyPath} -out ${caCrtPath} -config ${confPath}`, execSyncOption);
 }
 
+if (status === 'verify') {
+    execSync(`${binPath} x509 -text -in ${caCrtPath}`, execSyncOption)   ;
+}
+
 /**
  * Create server key
  */
@@ -35,7 +39,7 @@ const serverKeyPath = `${serverKeystorePath}/server.key`;
 const serverCsrPath =  `${serverKeystorePath}/server.csr`;
 const serverCrtPath = `${serverKeystorePath}/server.crt`;
 if (status === 'all' || status === 'server') {
-    execSync(`${binPath} genrsa -des3 -out ${serverKeyPath} 2048`, execSyncOption);
+    // execSync(`${binPath} genrsa -des3 -out ${serverKeyPath} 2048`, execSyncOption);
     execSync(`${binPath} genrsa -out ${serverKeyPath} 2048`, execSyncOption);
     execSync(`${binPath} req -out ${serverCsrPath} -key ${serverKeyPath} -new -config ${confPath}`, execSyncOption);
     execSync(`${binPath} x509 -req -in ${serverCsrPath} -CA ${caCrtPath} -CAkey ${caKeyPath} -CAcreateserial -out ${serverCrtPath} -days 1024`, execSyncOption);
@@ -49,7 +53,8 @@ const clientKeyPath = `${clientKeystorePath}/client.key`;
 const clientCsrPath = `${clientKeystorePath}/client.csr`;
 const clientCrtPath = `${clientKeystorePath}/client.crt`;
 if (status === 'all' || status === 'client') {
-    execSync(`${binPath} genrsa -des3 -out ${clientKeyPath} 2048`, execSyncOption);
+    // execSync(`${binPath} genrsa -des3 -out ${clientKeyPath} 2048`, execSyncOption);
+    execSync(`${binPath} genrsa -out ${clientKeyPath} 2048`, execSyncOption);
     execSync(`${binPath} req -out ${clientCsrPath} -key ${clientKeyPath} -new -config ${confPath}`, execSyncOption);
     execSync(`${binPath} x509 -req -in ${clientCsrPath} -CA ${caCrtPath} -CAkey ${caKeyPath} -CAcreateserial -out ${clientCrtPath} -days 1024`, execSyncOption);
 }

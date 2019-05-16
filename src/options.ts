@@ -6,14 +6,28 @@ export interface ClientOptions extends IClientOptions {
     secureProtocol?: string;
 }
 
+export interface MoscaLogger {
+    name?: string;
+    level?: number | string;
+}
+
+export interface MoscaSecure {
+    port?: number;
+    keyPath?: string;
+    certPath?: string;
+}
+
+export interface MoscaSettings {
+    port: number;
+    logger?: MoscaLogger;
+    secure?: MoscaSecure;
+}
+
 export const mqttClientOptions: ClientOptions = {
     host: 'localhost',
-    port: 1883,
+    port: 2883,
     protocol: 'mqtt',
-};
-
-const options = {
-    // encoding: 'UTF-8',
+    connectTimeout: 10 * 1000,
 };
 
 export const mqttsClientOptions: ClientOptions = {
@@ -22,15 +36,24 @@ export const mqttsClientOptions: ClientOptions = {
     protocol: 'mqtts',
     protocolId: 'MQIsdp',
     protocolVersion: 3,
-    passphrase: 'test',
     secureProtocol: 'TLSv1_method',
-    reconnectPeriod: 5000,
+    reconnectPeriod: 5 * 1000,
     rejectUnauthorized: false,
-    ca: [fs.readFileSync('keystore/ca/ca.crt', options)],
-    key: fs.readFileSync('keystore/client/client.key', options),
-    cert: fs.readFileSync('keystore/client/client.crt', options),
+    connectTimeout: 10 * 1000,
+    ca: [fs.readFileSync('keystore/ca/ca.crt')],
+    key: fs.readFileSync('keystore/client/client.key'),
+    cert: fs.readFileSync('keystore/client/client.crt'),
 };
 
-// console.log('ca', fs.readFileSync('keystore/ca/ca.crt', options));
-// console.log('key', fs.readFileSync('keystore/client/client.key', options));
-// console.log('cert', fs.readFileSync('keystore/client/client.crt', options));
+export const moscaSettings: MoscaSettings = {
+    port: 2883,
+    logger: {
+        name: "secure",
+        level: 40,
+    },
+    secure: {
+        port: 8443,
+        keyPath: 'keystore/server/server.key',
+        certPath: 'keystore/server/server.crt',
+    },
+};

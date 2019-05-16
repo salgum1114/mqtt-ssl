@@ -1,6 +1,6 @@
 import mqtt from 'mqtt';
 
-import { mqttClientOptions } from './options';
+import { mqttClientOptions, mqttsClientOptions } from './options';
 
 const client = mqtt.connect(mqttClientOptions);
 
