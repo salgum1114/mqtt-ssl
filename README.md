@@ -68,9 +68,15 @@ openssl x509 -req -in ../../../keystore/client/client.csr -CA ../../../keystore/
 # Example input when generating keys with openssl.
 
 Country Name (2 letter code)=KR
+
 State or Province Name (full name)=Gyeonggi-do
+
 Locality Name (eg, city)=Seongnam-si
+
 Organization Name (eg, company)=<your company>
+
 Organizational Unit Name (eg, section)=AIOTION
+
 Common Name (eg, YOUR hostname or domain)=<your hostname or domain>
+
 Email Address=<your email>
