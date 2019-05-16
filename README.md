@@ -73,10 +73,10 @@ State or Province Name (full name)=Gyeonggi-do
 
 Locality Name (eg, city)=Seongnam-si
 
-Organization Name (eg, company)=<your company>
+Organization Name (eg, company)=NKIA
 
 Organizational Unit Name (eg, section)=AIOTION
 
-Common Name (eg, YOUR hostname or domain)=<your hostname or domain>
+Common Name (eg, YOUR hostname or domain)=salgum1114
 
-Email Address=<your email>
+Email Address=salgum1112@gmail.com
