@@ -25,7 +25,7 @@ export interface MoscaSettings {
 
 export const mqttClientOptions: ClientOptions = {
     host: 'localhost',
-    port: 2883,
+    port: 1883,
     protocol: 'mqtt',
     connectTimeout: 10 * 1000,
 };
@@ -46,7 +46,7 @@ export const mqttsClientOptions: ClientOptions = {
 };
 
 export const moscaSettings: MoscaSettings = {
-    port: 2883,
+    port: 1883,
     logger: {
         name: "secure",
         level: 40,
