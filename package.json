@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "babel-node --extensions \".ts\" src/server.ts",
+    "websocket": "babel-node --extensions \".ts\" src/websocket.ts",
     "pub": "babel-node --extensions \".ts\" src/publisher.ts",
     "sub": "babel-node --extensions \".ts\" src/subscriber.ts",
     "keygen": "babel-node --extensions \".ts\" src/keygen.ts",
@@ -33,7 +34,8 @@
   "homepage": "https://github.com/salgum1114/mqtt-ssl#readme",
   "dependencies": {
     "mosca": "^2.8.3",
-    "mqtt": "^2.18.8"
+    "mqtt": "^2.18.8",
+    "ws": "^7.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
@@ -45,6 +47,7 @@
     "@babel/preset-typescript": "^7.3.3",
     "@types/mosca": "^2.8.1",
     "@types/mqtt": "^2.5.0",
-    "@types/node": "^12.0.2"
+    "@types/node": "^12.0.2",
+    "@types/ws": "^6.0.1"
   }
 }

@@ -17,10 +17,17 @@ export interface MoscaSecure {
     certPath?: string;
 }
 
+export interface MoscaHttp {
+    port?: number;
+    bundle?: boolean;
+    static?: string;
+}
+
 export interface MoscaSettings {
-    port: number;
+    port?: number;
     logger?: MoscaLogger;
     secure?: MoscaSecure;
+    http?: MoscaHttp;
 }
 
 export const mqttClientOptions: ClientOptions = {
@@ -47,13 +54,13 @@ export const mqttsClientOptions: ClientOptions = {
 
 export const moscaSettings: MoscaSettings = {
     port: 1883,
-    logger: {
-        name: "secure",
-        level: 40,
-    },
-    secure: {
-        port: 8443,
-        keyPath: 'keystore/server/server.key',
-        certPath: 'keystore/server/server.crt',
-    },
+    // logger: {
+    //     name: "secure",
+    //     level: 40,
+    // },
+    // secure: {
+    //     port: 8443,
+    //     keyPath: 'keystore/server/server.key',
+    //     certPath: 'keystore/server/server.crt',
+    // },
 };
